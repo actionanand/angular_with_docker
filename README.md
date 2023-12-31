@@ -148,7 +148,7 @@ docker-compose run --rm build run serve:ssr:my_angular_play
 1. Building the image for Angular 17
 
 ```bash
-docker build . -t actionanand/ng-create:17
+docker build . -t actionanand/ng-create:17 -f angular.dockerfile
 ```
 
 2. Pushing the Image
