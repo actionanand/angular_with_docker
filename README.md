@@ -191,6 +191,17 @@ docker run --rm -it --name ng-create -v "D:\AR_extra\rnd\docker\test:/app" actio
 docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 new --directory .
 ```
 
+### Some useful commands
+
+1. `docker container prune` - to remove all stopped containers
+2. `docker system prune` - to remove all stopped images. This command will remove all stopped containers, networks, and dangling images
+3. If you want to remove all images, not just the dangling ones, you can add the '-a' option to the command, like so:
+
+```bash
+docker system prune -a
+```
+4. `docker volume prune` -  to remove unused volumes
+
 ## Docker Image for creating angular project
 
 * [actionanand/ng-create](https://hub.docker.com/r/actionanand/ng-create)
