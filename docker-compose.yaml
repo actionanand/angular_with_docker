@@ -1,0 +1,63 @@
+version: "3.8"
+
+services: 
+  ng:
+    build:
+      context: ./dockerfiles
+      dockerfile: angular.dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./angular:/app
+
+  npm:
+    build:
+      context: .
+      dockerfile: dockerfiles/npm.dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./angular:/app
+
+  server:
+    build:
+      context: .
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - ./angular/src:/app/src
+    ports:
+      - 4201:4200
+    # command: npm start --host 0.0.0.0
+    command: npm run ng-start
+
+  test:
+    build:
+      context: .
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - ./angular/src:/app/src
+    ports:
+      - 4203:9876
+    command: npm run test
+
+  ssr:
+    build:
+      context: .
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - ./angular:/app
+      - /app/node_modules
+    ports:
+      - 4202:4000
+    command: npm run serve:ssr:my_angular_play
+
+  build:
+    build:
+      context: .
+      dockerfile: dockerfiles/server.dockerfile
+    volumes:
+      - ./angular:/app
+      - /app/node_modules
+    ports:
+      - 4202:4000
+    entrypoint: ["npm"]
