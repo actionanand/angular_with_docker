@@ -145,6 +145,8 @@ docker-compose run --rm build run serve:ssr:my_angular_play
 
 ## Preparing to push to docker hub
 
+* Navigate to the folder where `angular.dockerfile` exists, then execute the below command
+
 1. Building the image for Angular 17
 
 ```bash
