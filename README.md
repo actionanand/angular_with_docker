@@ -170,19 +170,25 @@ docker pull actionanand/ng-create:17
 * Creating new angular project
 
 ```shell
-docker run -d --rm --name ng-create -v folder_path:/app actionanand/ng-create:17 new 
+docker run --rm -it --name ng-create -v "folder_path:/app" actionanand/ng-create:17 new
 ```
 
 In mac, linux or wsl2
 
 ```shell
-docker run -d --rm --name ng-create -v $(pwd):/app actionanand/ng-create:17 new 
+docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 new 
+```
+
+In windows,
+
+```bash
+docker run --rm -it --name ng-create -v "D:\AR_extra\rnd\docker\test:/app" actionanand/ng-create:17 new
 ```
 
 * creating new Angular project in the current folder
 
 ```bash
-docker run -d --rm --name ng-create -v $(pwd):/app actionanand/ng-create:17 new --directory ./ --skip-install
+docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 new --directory .
 ```
 
 ## Docker Image for creating angular project
