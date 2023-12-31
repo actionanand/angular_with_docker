@@ -76,6 +76,7 @@ docker-compose down -v
 ```bash
 docker-compose run --rm ng g c pages/home
 ```
+```
 
 ### Installing with 'ng add'
 
@@ -142,7 +143,49 @@ docker-compose run --rm build run serve:ssr:my_angular_play
 
 * You can try any `script` in `package.json` after `npm` with `docker-compose run --rm build run`
 
+## Preparing to push to docker hub
+
+1. Building the image for Angular 17
+
+```bash
+docker build . -t actionanand/ng-create:17
+```
+
+2. Pushing the Image
+
+```shell
+docker push actionanand/ng-create:17
+```
+
+## Utilizing docker hub Image
+
+* Pull Angular 17
+
+```bash
+docker pull actionanand/ng-create:17
+```
+
+* Creating new angular project
+
+```shell
+docker run -d --rm --name ng-create -v folder_path:/app actionanand/ng-create:17 new 
+```
+
+In mac, linux or wsl2
+
+```shell
+docker run -d --rm --name ng-create -v $(pwd):/app actionanand/ng-create:17 new 
+```
+
+* creating new Angular project in the current folder
+
+```bash
+docker run -d --rm --name ng-create -v $(pwd):/app actionanand/ng-create:17 new --directory ./ --skip-install
+```
+
 ## Docker Image for creating angular project
+
+* [actionanand/ng-create](https://hub.docker.com/r/actionanand/ng-create)
 
 ## Associated repos:
 
