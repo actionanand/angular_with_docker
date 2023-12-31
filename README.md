@@ -191,6 +191,13 @@ docker run --rm -it --name ng-create -v "D:\AR_extra\rnd\docker\test:/app" actio
 docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 new --directory .
 ```
 
+### Generating new component, service, etc
+
+* Creating `home` component under the folder `pages`
+```bash
+docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 g c pages/home
+```
+
 ### Some useful commands
 
 1. `docker container prune` - to remove all stopped containers
