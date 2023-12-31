@@ -76,7 +76,6 @@ docker-compose down -v
 ```bash
 docker-compose run --rm ng g c pages/home
 ```
-```
 
 ### Installing with 'ng add'
 
@@ -196,6 +195,14 @@ docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 new
 * Creating `home` component under the folder `pages`
 ```bash
 docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 g c pages/home
+```
+
+### Installing with 'ng add'
+
+* we can see example with `ng add @angular/pwa`. Other packages also uses the same way to be added!
+
+```bash
+docker run --rm -it --name ng-create -v $(pwd):/app actionanand/ng-create:17 add @angular/pwa
 ```
 
 ### Some useful commands
