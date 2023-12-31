@@ -71,6 +71,20 @@ to remove named volumes while removing container,
 docker-compose down -v
 ```
 
+### Generating new component, service, etc using 'ng' command
+
+```bash
+docker-compose run --rm ng g c pages/home
+```
+
+### Installing with 'ng add'
+
+* we can see example with `ng add @angular/pwa`. Other packages also uses the same way to be added!
+
+```bash
+docker-compose run --rm ng add @angular/pwa
+```
+
 ### Installing some third party npm packages
 
 1. Run `npm install` as below always
